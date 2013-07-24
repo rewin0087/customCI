@@ -1,0 +1,4 @@
+Options -Indexes +FollowSymLinks
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule /media http://bridgestone.ph/ [R=301,L]
