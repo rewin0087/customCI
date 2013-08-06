@@ -20,18 +20,92 @@ class Base_Controllers extends CI_Controller {
 
     protected function _renderPage()
     {
-	    $head = $this->load->view('_header', $this->_head, true);
-        $body = $this->load->view($this->_template, $this->_body, true);
-        $foot = $this->load->view('_footer', $this->_foot, true);
+	    $head = $this->_view('_header', $this->_head, true);
+        $body = $this->_view($this->_template, $this->_body, true);
+        $foot = $this->_view('_footer', $this->_foot, true);
 		
-        return $this->load->view('_page', array(
+        return $this->_view('_page', array(
             'head'  => $head,
             'body'  => $body,
             'foot'  => $foot,
             'class' => $this->_class,
-            'title' => $this->_title));
+            'title' => $this->_title), false);
     }
 	
+	/* Title: Class name
+	* Description: setting a Class name on _page instead of $this->_class = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @return: object
+	*/
+	protected function _setClass($class) {
+		$this->_class = $class;
+		
+		return $this;
+	}
+	
+	/* Title: Title 
+	* Description: setting a Title on _page instead of $this->_title = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @return: object
+	*/
+	protected function _setTitle($title) {
+		$this->_title = $title;
+		
+		return $this;
+	}
+	
+	/* Title: Template
+	* Description: setting a Template instead of $this->_template = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @return: object
+	*/
+	protected function _setTemplate($template) {
+		$this->_template = $template;
+		
+		return $this;
+	}
+	
+	/* Title: Body Content
+	* Description: setting a Body content instead of $this->_body = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @param: varchar | array | object | int | double
+	* @return: object
+	*/
+	protected function _setBody($index, $value) {
+		$this->_body[$index] = $value;
+		
+		return $this;
+	}
+	
+	/* Title: header Content
+	* Description: setting a Header content instead of $this->_head = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @param: varchar | array | object | int | double
+	* @return: object
+	*/
+	protected function _setHeader($index, $value) {
+		$this->_head[$index] = $value;
+		
+		return $this;
+	}
+	
+	/* Title: footer Content
+	* Description: setting a footer content instead of $this->_head = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @param: varchar | array | object | int | double
+	* @return: object
+	*/
+	protected function _setFooter($index, $value) {
+		$this->_foot[$index] = $value;
+		
+		return $this;
+	}
 	
 	/* Title: Model
 	* Description: Load a specifice model. Instead of always using $this->load->model

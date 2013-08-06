@@ -33,6 +33,87 @@ class Base_Controllers extends CI_Controller {
             'title' => $this->_title), false);
     }
 	
+	/* Title: Class name
+	* Description: setting a Class name on _page instead of $this->_class = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @return: object
+	*/
+	protected function _setClass($class) {
+		$this->_class = $class;
+		
+		return $this;
+	}
+	
+	/* Title: Title 
+	* Description: setting a Title on _page instead of $this->_title = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @return: object
+	*/
+	protected function _setTitle($title) {
+		$this->_title = $title;
+		
+		return $this;
+	}
+	
+	/* Title: Template
+	* Description: setting a Template instead of $this->_template = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @return: object
+	*/
+	protected function _setTemplate($template) {
+		$this->_template = $template;
+		
+		return $this;
+	}
+	
+	/* Title: Body Content
+	* Description: setting a Body content instead of $this->_body = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @param: varchar | array | object | int | double
+	* @return: object
+	*/
+	protected function _setBody($index, $value) {
+		$this->_body[$index] = $value;
+		
+		return $this;
+	}
+	
+	/* Title: header Content
+	* Description: setting a Header content instead of $this->_head = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @param: varchar | array | object | int | double
+	* @return: object
+	*/
+	protected function _setHeader($index, $value) {
+		$this->_head[$index] = $value;
+		
+		return $this;
+	}
+	
+	/* Title: footer Content
+	* Description: setting a footer content instead of $this->_head = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @param: varchar | array | object | int | double
+	* @return: object
+	*/
+	protected function _setFooter($index, $value) {
+		$this->_foot[$index] = $value;
+		
+		return $this;
+	}
+	
+	/*
+	* Title: Upload Script
+	* Description: upload a file on upload folder
+	* @param varchar
+	* @return bool
+	*/
 	protected function _upload($file) {
 		$path = $this->_root.'upload';
 		$max = 4000 * 1024;
