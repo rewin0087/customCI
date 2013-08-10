@@ -2,14 +2,14 @@
 
 class Base_Controllers extends CI_Controller {
     protected $_meta        = array();
-	protected $_head        = array();
+    protected $_head        = array();
     protected $_body        = array();
-	protected $_foot		= array();
+    protected $_foot	    = array();
     protected $_title       = NULL;
     protected $_class       = NULL;
-	protected $_root		= NULL;
+    protected $_root	    = NULL;
     protected $_template    = NULL;
-	protected $_message	 = array();
+    protected $_message	    = array();
 	
     public function __construct()
     {
