@@ -64,6 +64,18 @@ class Base_Controllers extends CI_Controller {
 		return $this;
 	}
 	
+	/* Title: Append Class name
+	* Description: appending a Class name on _page instead of $this->_class = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @return: object
+	*/
+	protected function _appendClass($class) {
+		$this->_class .= $class;
+		
+		return $this;
+	}
+	
 	/* Title: Title 
 	* Description: setting a Title on _page instead of $this->_title = ???
 	* Author: rewin & jhime
@@ -72,6 +84,18 @@ class Base_Controllers extends CI_Controller {
 	*/
 	protected function _setTitle($title) {
 		$this->_title = $title;
+		
+		return $this;
+	}
+	
+	/* Title: Append Title 
+	* Description: appending a Title on _page instead of $this->_title = ???
+	* Author: rewin & jhime
+	* @param: varchar
+	* @return: object
+	*/
+	protected function _appendTitle($title) {
+		$this->_title .= $title;
 		
 		return $this;
 	}
