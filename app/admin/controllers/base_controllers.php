@@ -33,26 +33,6 @@ class Base_Controllers extends CI_Controller {
             'title' => $this->_title), false);
     }
 	
-	protected function _upload($file) {
-		$path			= $this->_root.'upload';
-		$max 			 = 4000 * 1024;
-		$fileExtension   = pathinfo($file['name']);
-		$name			= basename($file['name']);
-		$extension 	   = $fileExtension['extension'];
-		$temp			= $file['tmp_name'];
-		$file 			= $path.'/'.url_title($name.'-'.date('y-m-d')).'.'.strtolower($extension);
-		
-		// move files to new directory
-		move_uploaded_file($temp, $file);
-		
-		// check file if now move to new directory
-		if(file_exists($file)) {
-			return true;	
-		} else {
-			return false;
-		}	 
-	}
-	
 	/* Title: Class name
 	* Description: setting a Class name on _page instead of $this->_class = ???
 	* Author: rewin & jhime
